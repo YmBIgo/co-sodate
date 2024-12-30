@@ -32,7 +32,7 @@ const Header: React.FC<HeaderProps> = ({isLogin}) => {
           component="div"
           sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
         >
-          <Link to="/" style={{ color: "#fff" }}>Baby Care</Link>
+          <Link to="/" style={{ color: "#fff" }}>Co-Sodate</Link>
         </Typography>
         <Box sx={{ display: { xs: "none", sm: "block" } }}>
           { isLogin
@@ -45,7 +45,7 @@ const Header: React.FC<HeaderProps> = ({isLogin}) => {
                 <Link to="/chats" style={{ color: "#fff" }}>育児仲間チャット</Link>
             </Button>
             <Button>
-                <Link to="/find" style={{ color: "#fff" }}>育児仲間を見つける</Link>
+                <Link to="/findUser" style={{ color: "#fff" }}>育児仲間を見つける</Link>
             </Button>
             <Button>
                 <Link to="/usage" style={{ color: "#fff" }}>使い方</Link>

@@ -15,11 +15,12 @@ import { db } from "../firebase";
 
 type UserHooksProps = {
   currentUser: User | null | false;
-  disableGetUser?: boolean
+  disableGetUser?: boolean; // ユーザー登録時
+  disabledRedirect?: boolean; // ログインしていない場合も許容する場合
 };
 
 export const useUser = (props: UserHooksProps) => {
-  const { currentUser, disableGetUser } = props;
+  const { currentUser, disableGetUser, disabledRedirect } = props;
   const [userDoc, setUserDoc] = useState<UserType | null | false>(false);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const navigate = useNavigate();
@@ -40,6 +41,10 @@ export const useUser = (props: UserHooksProps) => {
           limit(1)
         );
         const querySnapshot = await getDocs(q);
+        if (disabledRedirect && querySnapshot.size === 0) {
+          setUserDoc(null)
+          return;
+        }
         if (querySnapshot.size === 0) {
           navigate("/createUser");
           return;
@@ -56,6 +61,6 @@ export const useUser = (props: UserHooksProps) => {
       }
     }
     getUser();
-  }, [currentUser, disableGetUser]);
+  }, [currentUser, disableGetUser, disabledRedirect]);
   return {userDoc, setUserDoc, isLoading}
 };

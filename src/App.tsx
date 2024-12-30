@@ -11,6 +11,8 @@ import CreateUser from "./templates/CreateUser";
 import EditUser from "./templates/EditUser";
 import RegisterBaby from "./templates/RegisterBaby";
 import EditBaby from "./templates/EditBaby";
+import FindUser from "./templates/FindUser";
+import DetailUser from "./templates/DetailUser";
 
 const mainSection = {
   paddingTop: "70px",
@@ -61,12 +63,30 @@ function App() {
             />
           }
           />
-          <Route path="/editUser" element={
-            <EditUser
-              currentUser={currentUser}
-              token={token}
-            />
-          }
+          <Route
+            path="/editUser"
+            element={
+              <EditUser
+                currentUser={currentUser}
+                token={token}
+              />
+            }
+          />
+          <Route
+            path="/detailUser/:userId"
+            element={
+              <DetailUser
+                currentUser={currentUser}
+              />
+            }
+          />
+          <Route
+            path="/findUser"
+            element={
+              <FindUser
+                currentUser={currentUser}
+              />
+            }
           />
           <Route
             path="/registerBaby"

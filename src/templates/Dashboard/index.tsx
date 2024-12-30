@@ -201,6 +201,7 @@ const Dashboard: React.FC<DashboardProps> = ({ currentUser }) => {
                                             label={fixedBabyName(baby.name, Number(baby.gender) as 0 | 1)}
                                             value={baby.id}
                                             onClick={() => setCurrentBaby(baby)}
+                                            key={baby.id}
                                         />
                                     )
                                 })}
@@ -261,7 +262,7 @@ const Dashboard: React.FC<DashboardProps> = ({ currentUser }) => {
                         一緒に育児を支え合えるママ仲間を見つけましょう
                     </p>
                     <Button variant="contained">
-                        <Link to="/find" style={{color: "white"}}>
+                        <Link to="/findUser" style={{color: "white"}}>
                         育児仲間を見つける
                         </Link>
                     </Button>
