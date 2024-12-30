@@ -1,0 +1,34 @@
+[Users]
+  - uid
+  - name
+  - profile
+  - prefecture
+  - city
+  - createdAt
+  - updatedAt
+[Babies]
+  - uid
+  - name
+  - birthday
+  - gender
+  - profile
+  - createdAt
+  - updatedAt
+[Images]
+  - type
+  - id
+  - imageUrl
+  - createdAt
+[ChatRooms]
+  - name
+  - user1
+  - user2
+  - user1Valid
+  - user2Valid
+  - createdAt
+[Chats]
+  - toUId
+  - fromUId
+  - chatRoomId
+  - content
+  - createdAt
